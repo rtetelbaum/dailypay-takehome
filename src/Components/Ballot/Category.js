@@ -8,6 +8,7 @@ const Category = (props) => {
 			<Nominee 
 			nominee={nominee} 
 			key={nominee.id}
+			categoryTitle={props.categoryTitle}
 			picture={props.picture} setPicture={props.setPicture}
 			director={props.director} setDirector={props.setDirector}
 			actor={props.actor} setActor={props.setActor}
