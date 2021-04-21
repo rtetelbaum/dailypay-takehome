@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Category from './Category'
+import Modal from './Modal'
 
 const Ballot = () => {
 
@@ -11,6 +12,7 @@ const Ballot = () => {
 	const [supActor, setSupActor] = useState()
 	const [supActress, setSupActress] = useState()
 	const [effects, setEffects] = useState()
+	const [modalClicked, setModalClicked] = useState(false)
 
 	useEffect(() => getBallotData(), [], console.log(ballot))
 
@@ -39,10 +41,32 @@ const Ballot = () => {
 		)
 	}
 
+	const clickHandler = () => {
+		setModalClicked(true)
+	}
+
 	return (
 		<div className='ballot'>
 			<h1>AWARDS 2021</h1>
 			{ballot ? arrayOfCategories() : "Loading..."}
+			{ballot ? <button onClick={clickHandler}>Submit Ballot</button> : null}
+			{
+				modalClicked
+					?
+					<Modal
+						modalClicked={modalClicked}
+						setModalClicked={setModalClicked}
+						picture={picture}
+						director={director}
+						actor={actor}
+						actress={actress}
+						supActor={supActor}
+						supActress={supActress}
+						effects={effects}
+					/>
+					:
+					null
+			}
 		</div>
 	)
 }
