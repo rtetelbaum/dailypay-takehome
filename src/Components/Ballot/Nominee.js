@@ -4,36 +4,34 @@ const Nominee = (props) => {
 
 	const clickHandler = () => {
 		if (props.categoryTitle === "Best Picture") {
-			props.setPicture(props.nominee.title)
+			props.setVote(prevVote => {return {...prevVote, picture: props.nominee.title}})
 		} else if (props.categoryTitle === "Best Director") {
-			props.setDirector(props.nominee.title)
+			props.setVote(prevVote => {return {...prevVote, director: props.nominee.title}})
 		} else if (props.categoryTitle === "Best Actor") {
-			props.setActor(props.nominee.title)
+			props.setVote(prevVote => {return {...prevVote, actor: props.nominee.title}})
 		} else if (props.categoryTitle === "Best Actress") {
-			props.setActress(props.nominee.title)
+			props.setVote(prevVote => {return {...prevVote, actress: props.nominee.title}})
 		} else if (props.categoryTitle === "Best Supporting Actor") {
-			props.setSupActor(props.nominee.title)
+			props.setVote(prevVote => {return {...prevVote, supActor: props.nominee.title}})
 		} else if (props.categoryTitle === "Best Supporting Actress") {
-			props.setSupActress(props.nominee.title)
+			props.setVote(prevVote => {return {...prevVote, supActress: props.nominee.title}})
 		} else if (props.categoryTitle === "Best Visual Effects") {
-			props.setEffects(props.nominee.title)
+			props.setVote(prevVote => {return {...prevVote, effects: props.nominee.title}})
 		}
 	}
 
 	return (
-		props.picture === props.nominee.title 
-		|| props.director === props.nominee.title 
-		|| props.actor === props.nominee.title 
-		|| props.actress === props.nominee.title
-		|| props.supActor === props.nominee.title
-		|| props.supActress === props.nominee.title
-		|| props.effects === props.nominee.title
+		props.vote.picture === props.nominee.title 
+		|| props.vote.director === props.nominee.title 
+		|| props.vote.actor === props.nominee.title 
+		|| props.vote.actress === props.nominee.title
+		|| props.vote.supActor === props.nominee.title
+		|| props.vote.supActress === props.nominee.title
+		|| props.vote.effects === props.nominee.title
 			?
 			<div className='selected-nominee'>
 				<h3>{props.nominee.title}</h3>
 				<img src={props.nominee.photoUrL} alt="Movie Poster" />
-				<br />
-				<button className='vote-button' onClick={clickHandler}>Vote</button>
 			</div>
 			:
 			<div className='nominee'>

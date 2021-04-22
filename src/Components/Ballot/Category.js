@@ -9,13 +9,15 @@ const Category = (props) => {
 				nominee={nominee}
 				key={nominee.id}
 				categoryTitle={props.categoryTitle}
-				picture={props.picture} setPicture={props.setPicture}
-				director={props.director} setDirector={props.setDirector}
-				actor={props.actor} setActor={props.setActor}
-				actress={props.actress} setActress={props.setActress}
-				supActor={props.supActor} setSupActor={props.setSupActor}
-				supActress={props.supActress} setSupActress={props.setSupActress}
-				effects={props.effects} setEffects={props.setEffects}
+				// picture={props.picture} setPicture={props.setPicture}
+				// director={props.director} setDirector={props.setDirector}
+				// actor={props.actor} setActor={props.setActor}
+				// actress={props.actress} setActress={props.setActress}
+				// supActor={props.supActor} setSupActor={props.setSupActor}
+				// supActress={props.supActress} setSupActress={props.setSupActress}
+				// effects={props.effects} setEffects={props.setEffects}
+				vote={props.vote}
+				setVote={props.setVote}
 			/>
 		)
 	}
