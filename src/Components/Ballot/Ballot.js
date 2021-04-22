@@ -14,7 +14,7 @@ const Ballot = () => {
 	const [effects, setEffects] = useState()
 	const [modalClicked, setModalClicked] = useState(false)
 
-	useEffect(() => getBallotData(), [], console.log(ballot))
+	useEffect(() => getBallotData(), [])
 
 	const getBallotData = () => {
 		return fetch('/api/getBallotData').then(res => {
@@ -49,7 +49,7 @@ const Ballot = () => {
 		<div className='ballot'>
 			<h1>AWARDS 2021</h1>
 			{ballot ? arrayOfCategories() : "Loading..."}
-			{ballot ? <button onClick={clickHandler}>Submit Ballot</button> : null}
+			{ballot ? <button className='submit-button' onClick={clickHandler}>Submit Ballot</button> : null}
 			{
 				modalClicked
 					?
