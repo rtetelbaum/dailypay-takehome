@@ -14,7 +14,7 @@ const Ballot = () => {
 	const [effects, setEffects] = useState()
 	const [modalClicked, setModalClicked] = useState(false)
 
-	useEffect(() => getBallotData(), [], console.log(ballot))
+	useEffect(() => getBallotData(), [])
 
 	const getBallotData = () => {
 		return fetch('/api/getBallotData').then(res => {
