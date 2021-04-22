@@ -15,19 +15,19 @@ const Modal = (props) => {
 				<div className='modal-text'>
 					<h1>Votes Submitted!</h1>
 					<h3>Best Picture:</h3>
-					<p>{props.picture}</p>
+					<p>{props.vote.picture}</p>
 					<h3>Best Director:</h3>
-					<p>{props.director}</p>
+					<p>{props.vote.director}</p>
 					<h3>Best Actor:</h3>
-					<p>{props.actor}</p>
+					<p>{props.vote.actor}</p>
 					<h3>Best Actress:</h3>
-					<p>{props.actress}</p>
+					<p>{props.vote.actress}</p>
 					<h3>Best Supporting Actor:</h3>
-					<p>{props.supActor}</p>
+					<p>{props.vote.supActor}</p>
 					<h3>Best Supporting Actress:</h3>
-					<p>{props.supActress}</p>
+					<p>{props.vote.supActress}</p>
 					<h3>Best Visual Effects:</h3>
-					<p>{props.effects}</p>
+					<p>{props.vote.effects}</p>
 				</div>
 			</div>
 		</div>
