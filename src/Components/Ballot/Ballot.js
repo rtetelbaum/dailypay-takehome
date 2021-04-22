@@ -6,13 +6,6 @@ const Ballot = () => {
 
 	const [ballot, setBallot] = useState()
 	const [modalClicked, setModalClicked] = useState(false)
-	// const [picture, setPicture] = useState()
-	// const [director, setDirector] = useState()
-	// const [actor, setActor] = useState()
-	// const [actress, setActress] = useState()
-	// const [supActor, setSupActor] = useState()
-	// const [supActress, setSupActress] = useState()
-	// const [effects, setEffects] = useState()
 	const [vote, setVote] = useState({picture: '', director: '', actor: '', actress: '', supActor: '', supActress: '', effects: ''})
 
 	useEffect(() => getBallotData(), [])
@@ -31,13 +24,6 @@ const Ballot = () => {
 				categoryTitle={category.title}
 				nominees={category.items}
 				key={category.id}
-				// picture={picture} setPicture={setPicture}
-				// director={director} setDirector={setDirector}
-				// actor={actor} setActor={setActor}
-				// actress={actress} setActress={setActress}
-				// supActor={supActor} setSupActor={setSupActor}
-				// supActress={supActress} setSupActress={setSupActress}
-				// effects={effects} setEffects={setEffects}
 				vote={vote}
 				setVote={setVote}
 			/>
@@ -59,13 +45,6 @@ const Ballot = () => {
 					<Modal
 						modalClicked={modalClicked}
 						setModalClicked={setModalClicked}
-						// picture={picture}
-						// director={director}
-						// actor={actor}
-						// actress={actress}
-						// supActor={supActor}
-						// supActress={supActress}
-						// effects={effects}
 						vote={vote}
 					/>
 					:
