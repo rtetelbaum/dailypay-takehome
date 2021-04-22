@@ -33,7 +33,7 @@ const Nominee = (props) => {
 				<h3>{props.nominee.title}</h3>
 				<img src={props.nominee.photoUrL} alt="Movie Poster" />
 				<br />
-				<button onClick={clickHandler}>Vote</button>
+				<button className='vote-button' onClick={clickHandler}>Vote</button>
 			</div>
 			:
 			<div className='nominee'>

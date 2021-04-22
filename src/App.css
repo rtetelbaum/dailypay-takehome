@@ -1,3 +1,7 @@
+body {
+	color: #FFFFFF;
+}
+
 .App {
   text-align: center;
 }
@@ -31,16 +35,24 @@
   }
 }
 
-.selected-nominee {
-	color: red;
-}
-
 .ballot {
 	padding-bottom: 25px;
+	background-color: #0D2436;
+}
+
+.submit-button {
+	background-color:	#009B86;
+	color: #FFFFFF;
+	margin: 10px;
+}
+
+.submit-button:hover {
+	background-color: #34AC9C;
+	color: #CCCCCC;
 }
 
 .modal {
-	background-color: rgba(0,0,0,0.3);
+	background-color: rgba(0,0,0,0.6);
 	z-index: 1;
 	width: 100%;
 	height: 100%;
@@ -52,12 +64,13 @@
 }
 
 .modal-content {
-	background-color: #fff;
+	background-color: #0D2436;
 	width: 50%;
 	height: 85%;
 	margin: auto;
-	border: 2px solid black;
+	border: 2px solid #009B86;
 	border-radius: 20px;
+	overflow: auto;
 }
 
 .modal-close-div {
@@ -69,17 +82,45 @@
 	clear: both;
 }
 
+.modal-close-button {
+	background-color:	#009B86;
+	color: #FFFFFF;
+}
+
+.modal-close-button:hover {
+	background-color: #34AC9C;
+	color: #CCCCCC;
+}
+
 .nominee-container {
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .nominee {
-	border: 2px solid black;
+	background-color: #0e4066;
+	border: 2px solid #009B86;
+	border-radius: 20px;
+	box-shadow: 4px 4px 4px 4px rgba(52, 172, 156, 0.75);
+	width: 20vw;
+	margin: 25px;
+	padding: 10px;
+}
+
+.selected-nominee {
+	border: 2px solid #009B86;
 	border-radius: 20px;
 	width: 20vw;
 	margin: 25px;
 	padding: 10px;
+	background-color: #099BB3;
+}
+
+.nominee:hover {
+	background-color: #34AC9C;
+	color: #CCCCCC;
+	transform: scale(1.1);
+	transition: .5s;
 }
 
 .nominee img {
@@ -87,6 +128,16 @@
 	margin: 10px;
 }
 
-/* .vote-button {
-	
-} */
+.selected-nominee img {
+	width: 18vw;
+	margin: 10px;
+}
+
+.vote-button {
+	background-color: #009B86;
+	color: #FFFFFF;
+}
+
+.vote-button:hover {
+	color: #CCCCCC;
+}
