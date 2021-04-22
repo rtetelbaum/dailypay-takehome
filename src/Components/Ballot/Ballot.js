@@ -38,7 +38,7 @@ const Ballot = () => {
 		<div className='ballot'>
 			<h1>AWARDS 2021</h1>
 			{ballot ? arrayOfCategories() : "Loading..."}
-			{ballot ? <button className='submit-button' onClick={clickHandler}>Submit Ballot</button> : null}
+			{ballot ? <button className='submit-button' onClick={clickHandler}>SUBMIT BALLOT</button> : null}
 			{
 				modalClicked
 					?
