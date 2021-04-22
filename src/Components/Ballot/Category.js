@@ -23,7 +23,9 @@ const Category = (props) => {
 	return (
 		<div className='category'>
 			<h2>{props.categoryTitle}</h2>
-			{arrayOfNominees()}
+			<div className='nominee-container'>
+				{arrayOfNominees()}
+			</div>
 		</div>
 	)
 }
