@@ -38,7 +38,7 @@ const Ballot = () => {
 		<div className='ballot'>
 			<h1>AWARDS 2021</h1>
 			{ballot ? <NavBar ballot={ballot} /> : null}
-			{ballot ? categoriesArray() : "LOADING BALLOT..."}
+			{ballot ? categoriesArray() : <h1>LOADING BALLOT...</h1>}
 			{ballot ? <button className='submit-button' onClick={clickHandler}>SUBMIT BALLOT</button> : null}
 			{
 				modalClicked

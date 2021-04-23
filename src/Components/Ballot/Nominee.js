@@ -12,15 +12,18 @@ const Nominee = props => {
 		props.nominee.title === props.votes[props.categoryTitle]
 			?
 			<div className='selected-nominee'>
-				<h3>{props.nominee.title}</h3>
-				<img src={props.nominee.photoUrL} alt="Movie Poster" />
+				<h3 className='card-title'>{props.nominee.title}</h3>
+				<div className='img-container'>
+					<img src={props.nominee.photoUrL} alt="Movie Poster" />
+				</div>
 				<button className='vote-button'>SELECTED</button>
 			</div>
 			:
 			<div className='nominee'>
-				<h3>{props.nominee.title}</h3>
-				<img src={props.nominee.photoUrL} alt="Movie Poster" />
-				<br />
+				<h3 className='card-title'>{props.nominee.title}</h3>
+				<div className='img-container'>
+					<img src={props.nominee.photoUrL} alt="Movie Poster" />
+				</div>
 				<button className='vote-button' onClick={clickHandler}>VOTE</button>
 			</div>
 	)

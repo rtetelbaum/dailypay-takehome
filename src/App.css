@@ -38,7 +38,8 @@ body {
 .submit-button {
 	background-color:	#009B86;
 	color: #FFFFFF;
-	margin: 20px;
+	margin: 30px;
+	font-size: 3vw;
 }
 
 .submit-button:hover {
@@ -126,6 +127,14 @@ body {
 	transition: .5s;
 }
 
+.card-title {
+	min-height: 70px;
+}
+
+.img-container {
+	min-height: 30vw;
+}
+
 .nominee img {
 	width: 18vw;
 	margin-bottom: 10px;
@@ -139,6 +148,7 @@ body {
 .vote-button {
 	background-color: #009B86;
 	color: #FFFFFF;
+	font-size: 1.5vw;
 }
 
 .vote-button:hover {
