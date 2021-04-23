@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react'
 import Category from './Category'
 import Modal from './Modal'
 
@@ -6,16 +6,14 @@ const Ballot = () => {
 
 	const [ballot, setBallot] = useState()
 	const [modalClicked, setModalClicked] = useState(false)
-	const [vote, setVote] = useState({picture: '', director: '', actor: '', actress: '', supActor: '', supActress: '', effects: ''})
+	const [vote, setVote] = useState({ picture: '', director: '', actor: '', actress: '', supActor: '', supActress: '', effects: '' })
 
 	useEffect(() => getBallotData(), [])
 
 	const getBallotData = () => {
-		return fetch('/api/getBallotData').then(res => {
-			return res.json();
-		}).then(ballotObj => {
-			setBallot(ballotObj.items)
-		});
+		return fetch('/api/getBallotData')
+			.then(res => res.json())
+			.then(ballotObj => setBallot(ballotObj.items))
 	}
 
 	const arrayOfCategories = () => {
