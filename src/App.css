@@ -157,6 +157,25 @@ body {
 
 @media screen and (max-width: 720px) {
 
+	.navbar {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	
+	.navbar a {
+		/* margin: 8px; */
+		font-size: 4vw;
+		font-weight: bold;
+		background-color: #0e4066;
+		border: 1px solid #009B86;
+		border-radius: 20px;
+		box-shadow: 2px 2px 2px 2px rgba(52, 172, 156, 0.5);
+		padding: 8px;
+	}
+
 	.ballot h1 {
 		font-size: 7vw;
 	}
