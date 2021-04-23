@@ -3,8 +3,13 @@ import React from 'react'
 const ModalVote = props => {
 	return (
 		<>
-			<h3>{props.category}</h3>
-			<p>{props.vote}</p>
+			{
+				props.vote
+					?
+					<p>{props.vote}</p>
+					:
+					<p>You didn't vote in this category</p>
+			}
 		</>
 	)
 }

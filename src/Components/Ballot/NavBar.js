@@ -4,7 +4,13 @@ import NavBarCategory from './NavBarCategory'
 const NavBar = props => {
 
 	const categoriesArray = () => {
-		return props.ballot.map(category => <NavBarCategory categoryId={category.id} categoryTitle={category.title} key={category.id} />)
+		return props.ballot.map(category =>
+			<NavBarCategory
+				categoryId={category.id}
+				categoryTitle={category.title}
+				key={category.id}
+			/>
+		)
 	}
 
 	return (

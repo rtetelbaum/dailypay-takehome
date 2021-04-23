@@ -1,5 +1,5 @@
 import React from 'react'
-import ModalVote from './ModalVote'
+import ModalCategory from './ModalCategory'
 
 const Modal = props => {
 
@@ -8,16 +8,13 @@ const Modal = props => {
 	}
 
 	const submittedVotesArray = () => {
-		const votesArray = []
-		Object.entries(props.votes).forEach(([key, value]) =>
-			votesArray.push(
-				<ModalVote
-					category={key}
-					vote={value}
-					key={key}
-				/>
-			))
-		return votesArray
+		return props.ballot.map(category =>
+			<ModalCategory
+				title={category.title}
+				votes={props.votes}
+				key={category.id}
+			/>
+		)
 	}
 
 	return (
@@ -28,7 +25,7 @@ const Modal = props => {
 				</div>
 				<div className='modal-text'>
 					<h1>Your Votes:</h1>
-					{submittedVotesArray().length === 0
+					{Object.keys(props.votes).length === 0
 						?
 						<h3>You didn't vote in any categories, please try again!</h3>
 						:
