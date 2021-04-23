@@ -103,12 +103,12 @@ body {
 
 .nominee img {
 	width: 18vw;
-	margin: 10px;
+	margin-bottom: 10px;
 }
 
 .selected-nominee img {
 	width: 18vw;
-	margin: 10px;
+	margin-bottom: 10px;
 }
 
 .vote-button {
@@ -118,4 +118,61 @@ body {
 
 .vote-button:hover {
 	color: #CCCCCC;
+}
+
+@media screen and (max-width: 720px) {
+
+	.ballot h1 {
+		font-size: 7vw;
+	}
+
+	.nominee {
+		width: 50vw;
+		font-size: 5vw;
+	}
+	
+	.selected-nominee {
+		width: 50vw;
+		font-size: 5vw;
+	}
+
+	.nominee img {
+		width: 45vw;
+		margin-bottom: 10px;
+	}
+	
+	.selected-nominee img {
+		width: 45vw;
+		margin-bottom: 10px;
+	}
+
+	.vote-button {
+		font-size: 5vw;
+	}
+
+	.submit-button {
+		font-size: 5vw;
+	}
+
+	.category-title {
+		text-align: center;
+		font-size: 6vw;
+	}
+
+	.nominee-container {
+		display: flex;
+		justify-content: center;
+	}
+
+	.modal-content {
+		width: 75%;
+	}
+
+	.modal-text {
+		font-size: 4.5vw;
+	}
+
+	.modal-close-button {
+		font-size: 4.5vw;
+	}
 }
