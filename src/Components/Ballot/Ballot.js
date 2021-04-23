@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import NavBar from './NavBar'
 import Category from './Category'
 import Modal from './Modal'
 
@@ -20,6 +21,7 @@ const Ballot = () => {
 		return ballot.map(category =>
 			<Category
 				categoryTitle={category.title}
+				categoryId={category.id}
 				nominees={category.items}
 				key={category.id}
 				vote={vote}
@@ -35,6 +37,7 @@ const Ballot = () => {
 	return (
 		<div className='ballot'>
 			<h1>AWARDS 2021</h1>
+			<NavBar />
 			{ballot ? arrayOfCategories() : "Loading..."}
 			{ballot ? <button className='submit-button' onClick={clickHandler}>SUBMIT BALLOT</button> : null}
 			{
@@ -52,4 +55,4 @@ const Ballot = () => {
 	)
 }
 
-export default Ballot;
+export default Ballot

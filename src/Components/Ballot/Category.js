@@ -16,7 +16,7 @@ const Category = (props) => {
 	}
 
 	return (
-		<div className='category'>
+		<div className='category' id={props.categoryId}>
 			<h2 className='category-title'>{props.categoryTitle}</h2>
 			<div className='nominee-container'>
 				{arrayOfNominees()}
