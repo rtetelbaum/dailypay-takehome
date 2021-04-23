@@ -3,31 +3,31 @@ import React from 'react'
 const Nominee = (props) => {
 
 	const clickHandler = () => {
-		if (props.categoryTitle === "Best Picture") {
-			props.setVote(prevVote => {return {...prevVote, picture: props.nominee.title}})
-		} else if (props.categoryTitle === "Best Director") {
-			props.setVote(prevVote => {return {...prevVote, director: props.nominee.title}})
-		} else if (props.categoryTitle === "Best Actor") {
-			props.setVote(prevVote => {return {...prevVote, actor: props.nominee.title}})
-		} else if (props.categoryTitle === "Best Actress") {
-			props.setVote(prevVote => {return {...prevVote, actress: props.nominee.title}})
-		} else if (props.categoryTitle === "Best Supporting Actor") {
-			props.setVote(prevVote => {return {...prevVote, supActor: props.nominee.title}})
-		} else if (props.categoryTitle === "Best Supporting Actress") {
-			props.setVote(prevVote => {return {...prevVote, supActress: props.nominee.title}})
-		} else if (props.categoryTitle === "Best Visual Effects") {
-			props.setVote(prevVote => {return {...prevVote, effects: props.nominee.title}})
+		const mapping = {
+			picture: 'Best Picture',
+			director: 'Best Director',
+			actor: 'Best Actor',
+			actress: 'Best Actress',
+			supActor: 'Best Supporting Actor',
+			supActress: 'Best Supporting Actress',
+			effects: 'Best Visual Effects',
+		}
+
+		for (const obj in mapping) {
+			if (props.categoryTitle === mapping[obj]) {
+				props.setVote(prevVote => { return { ...prevVote, [obj]: props.nominee.title } })
+			}
 		}
 	}
 
 	return (
-		props.vote.picture === props.nominee.title 
-		|| props.vote.director === props.nominee.title 
-		|| props.vote.actor === props.nominee.title 
-		|| props.vote.actress === props.nominee.title
-		|| props.vote.supActor === props.nominee.title
-		|| props.vote.supActress === props.nominee.title
-		|| props.vote.effects === props.nominee.title
+		props.vote.picture === props.nominee.title
+			|| props.vote.director === props.nominee.title
+			|| props.vote.actor === props.nominee.title
+			|| props.vote.actress === props.nominee.title
+			|| props.vote.supActor === props.nominee.title
+			|| props.vote.supActress === props.nominee.title
+			|| props.vote.effects === props.nominee.title
 			?
 			<div className='selected-nominee'>
 				<h3>{props.nominee.title}</h3>
@@ -38,7 +38,7 @@ const Nominee = (props) => {
 			<div className='nominee'>
 				<h3>{props.nominee.title}</h3>
 				<img src={props.nominee.photoUrL} alt="Movie Poster" />
-				<br />	
+				<br />
 				<button className='vote-button' onClick={clickHandler}>VOTE</button>
 			</div>
 	)
