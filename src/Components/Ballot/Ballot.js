@@ -6,7 +6,7 @@ import Modal from './Modal'
 const Ballot = () => {
 
 	const [ballot, setBallot] = useState()
-	const [modalClicked, setModalClicked] = useState(false)
+	const [showModal, setShowModal] = useState(false)
 	const [votes, setVotes] = useState({})
 
 	useEffect(() => getBallotData(), [])
@@ -17,40 +17,36 @@ const Ballot = () => {
 			.then(ballotObj => setBallot(ballotObj.items))
 	}
 
-	const categoriesArray = () => {
-		return ballot.map(category =>
-			<Category
-				categoryTitle={category.title}
-				categoryId={category.id}
-				nominees={category.items}
-				key={category.id}
-				votes={votes}
-				setVotes={setVotes}
-			/>
-		)
-	}
-
-	const clickHandler = () => {
-		setModalClicked(true)
+	const onSubmit = () => {
+		setShowModal(true)
 	}
 
 	return (
 		<div className='ballot'>
 			<h1>AWARDS 2021</h1>
-			{ballot ? <NavBar ballot={ballot} /> : null}
-			{ballot ? categoriesArray() : <h1>LOADING BALLOT...</h1>}
-			{ballot ? <button className='submit-button' onClick={clickHandler}>SUBMIT BALLOT</button> : null}
-			{
-				modalClicked
-					?
-					<Modal
-						modalClicked={modalClicked}
-						setModalClicked={setModalClicked}
-						ballot={ballot}
-						votes={votes}
-					/>
-					:
-					null
+
+			{ballot && <NavBar ballot={ballot} />}
+
+			{ballot ? ballot.map(category =>
+				<Category
+					categoryTitle={category.title}
+					categoryId={category.id}
+					nominees={category.items}
+					key={category.id}
+					votes={votes}
+					setVotes={setVotes}
+				/>
+			) : <h1>LOADING BALLOT...</h1>}
+
+			{ballot && <button className='submit-button' onClick={onSubmit}>SUBMIT BALLOT</button>}
+
+			{showModal &&
+				<Modal
+					showModal={showModal}
+					setShowModal={setShowModal}
+					ballot={ballot}
+					votes={votes}
+				/>
 			}
 		</div>
 	)

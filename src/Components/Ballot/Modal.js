@@ -1,27 +1,12 @@
 import React from 'react'
-import ModalCategory from './ModalCategory'
 
 const Modal = props => {
-
-	const clickHandler = () => {
-		props.setModalClicked(false)
-	}
-
-	const submittedVotesArray = () => {
-		return props.ballot.map(category =>
-			<ModalCategory
-				title={category.title}
-				votes={props.votes}
-				key={category.id}
-			/>
-		)
-	}
 
 	return (
 		<div className='modal'>
 			<div className='modal-content'>
 				<div className='modal-close-div'>
-					<button className='modal-close-button' onClick={clickHandler}>X</button>
+					<button className='modal-close-button' onClick={() => props.setShowModal(false)}>X</button>
 				</div>
 				<div className='modal-text'>
 					<h1>Your Votes:</h1>
@@ -29,7 +14,12 @@ const Modal = props => {
 						?
 						<h3>You didn't vote in any categories, please try again!</h3>
 						:
-						submittedVotesArray()
+						props.ballot.map(category => 
+							<div key={category.id}>
+								<h3>{category.title}</h3>
+								<p>{props.votes[category.title] || "You didn't vote in this category"}</p>
+							</div>
+						)
 					}
 				</div>
 			</div>
