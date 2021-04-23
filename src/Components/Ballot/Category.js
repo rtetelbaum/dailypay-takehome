@@ -1,25 +1,25 @@
 import React from 'react'
 import Nominee from './Nominee'
 
-const Category = (props) => {
+const Category = props => {
 
-	const arrayOfNominees = () => {
+	const nomineesArray = () => {
 		return props.nominees.map(nominee =>
 			<Nominee
 				nominee={nominee}
 				key={nominee.id}
 				categoryTitle={props.categoryTitle}
-				vote={props.vote}
-				setVote={props.setVote}
+				votes={props.votes}
+				setVotes={props.setVotes}
 			/>
 		)
 	}
 
 	return (
-		<div className='category'>
+		<div className='category' id={props.categoryId}>
 			<h2 className='category-title'>{props.categoryTitle}</h2>
 			<div className='nominee-container'>
-				{arrayOfNominees()}
+				{nomineesArray()}
 			</div>
 		</div>
 	)
