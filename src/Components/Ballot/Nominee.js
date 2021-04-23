@@ -1,33 +1,15 @@
 import React from 'react'
 
-const Nominee = (props) => {
+const Nominee = props => {
 
 	const clickHandler = () => {
-		const mapping = {
-			picture: 'Best Picture',
-			director: 'Best Director',
-			actor: 'Best Actor',
-			actress: 'Best Actress',
-			supActor: 'Best Supporting Actor',
-			supActress: 'Best Supporting Actress',
-			effects: 'Best Visual Effects',
-		}
-
-		for (const obj in mapping) {
-			if (props.categoryTitle === mapping[obj]) {
-				props.setVote(prevVote => { return { ...prevVote, [obj]: props.nominee.title } })
-			}
-		}
+		props.setVotes(prevVotes => {
+			return { ...prevVotes, [props.categoryTitle]: props.nominee.title }
+		})
 	}
 
 	return (
-		props.vote.picture === props.nominee.title
-			|| props.vote.director === props.nominee.title
-			|| props.vote.actor === props.nominee.title
-			|| props.vote.actress === props.nominee.title
-			|| props.vote.supActor === props.nominee.title
-			|| props.vote.supActress === props.nominee.title
-			|| props.vote.effects === props.nominee.title
+		props.nominee.title === props.votes[props.categoryTitle]
 			?
 			<div className='selected-nominee'>
 				<h3>{props.nominee.title}</h3>

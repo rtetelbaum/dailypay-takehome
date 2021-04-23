@@ -1,9 +1,23 @@
 import React from 'react'
+import ModalVote from './ModalVote'
 
-const Modal = (props) => {
+const Modal = props => {
 
 	const clickHandler = () => {
 		props.setModalClicked(false)
+	}
+
+	const submittedVotesArray = () => {
+		const votesArray = []
+		Object.entries(props.votes).forEach(([key, value]) =>
+			votesArray.push(
+				<ModalVote
+					category={key}
+					vote={value}
+					key={key}
+				/>
+			))
+		return votesArray
 	}
 
 	return (
@@ -13,21 +27,13 @@ const Modal = (props) => {
 					<button className='modal-close-button' onClick={clickHandler}>X</button>
 				</div>
 				<div className='modal-text'>
-					<h1>Votes Submitted!</h1>
-					<h3>Best Picture:</h3>
-					<p>{props.vote.picture}</p>
-					<h3>Best Director:</h3>
-					<p>{props.vote.director}</p>
-					<h3>Best Actor:</h3>
-					<p>{props.vote.actor}</p>
-					<h3>Best Actress:</h3>
-					<p>{props.vote.actress}</p>
-					<h3>Best Supporting Actor:</h3>
-					<p>{props.vote.supActor}</p>
-					<h3>Best Supporting Actress:</h3>
-					<p>{props.vote.supActress}</p>
-					<h3>Best Visual Effects:</h3>
-					<p>{props.vote.effects}</p>
+					<h1>Your Votes:</h1>
+					{submittedVotesArray().length === 0
+						?
+						<h3>You didn't vote in any categories, please try again!</h3>
+						:
+						submittedVotesArray()
+					}
 				</div>
 			</div>
 		</div>

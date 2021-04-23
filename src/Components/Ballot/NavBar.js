@@ -1,15 +1,15 @@
 import React from 'react'
+import NavBarCategory from './NavBarCategory'
 
-const NavBar = () => {
+const NavBar = props => {
+
+	const categoriesArray = () => {
+		return props.ballot.map(category => <NavBarCategory categoryId={category.id} categoryTitle={category.title} key={category.id} />)
+	}
+
 	return (
 		<div className='navbar'>
-			<a href='#best-picture'>Best Picture</a>
-			<a href='#best-director'>Best Director</a>
-			<a href='#best-actor'>Best Actor</a>
-			<a href='#best-actress'>Best Actress</a>
-			<a href='#best-supporting-actor'>Best Supporting Actor</a>
-			<a href='#best-supporting-actress'>Best Supporting Actress</a>
-			<a href='#best-visual-effects'>Best Visual Effects</a>
+			{categoriesArray()}
 		</div>
 	)
 }

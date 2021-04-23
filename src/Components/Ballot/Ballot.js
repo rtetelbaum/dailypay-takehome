@@ -7,7 +7,7 @@ const Ballot = () => {
 
 	const [ballot, setBallot] = useState()
 	const [modalClicked, setModalClicked] = useState(false)
-	const [vote, setVote] = useState({ picture: '', director: '', actor: '', actress: '', supActor: '', supActress: '', effects: '' })
+	const [votes, setVotes] = useState({})
 
 	useEffect(() => getBallotData(), [])
 
@@ -17,15 +17,15 @@ const Ballot = () => {
 			.then(ballotObj => setBallot(ballotObj.items))
 	}
 
-	const arrayOfCategories = () => {
+	const categoriesArray = () => {
 		return ballot.map(category =>
 			<Category
 				categoryTitle={category.title}
 				categoryId={category.id}
 				nominees={category.items}
 				key={category.id}
-				vote={vote}
-				setVote={setVote}
+				votes={votes}
+				setVotes={setVotes}
 			/>
 		)
 	}
@@ -37,8 +37,8 @@ const Ballot = () => {
 	return (
 		<div className='ballot'>
 			<h1>AWARDS 2021</h1>
-			<NavBar />
-			{ballot ? arrayOfCategories() : "Loading..."}
+			{ballot ? <NavBar ballot={ballot} /> : null}
+			{ballot ? categoriesArray() : "LOADING BALLOT..."}
 			{ballot ? <button className='submit-button' onClick={clickHandler}>SUBMIT BALLOT</button> : null}
 			{
 				modalClicked
@@ -46,7 +46,8 @@ const Ballot = () => {
 					<Modal
 						modalClicked={modalClicked}
 						setModalClicked={setModalClicked}
-						vote={vote}
+						ballot={ballot}
+						votes={votes}
 					/>
 					:
 					null
