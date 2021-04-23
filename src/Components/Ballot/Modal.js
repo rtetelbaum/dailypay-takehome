@@ -15,10 +15,10 @@ const Modal = props => {
 						<h3>You didn't vote in any categories, please try again!</h3>
 						:
 						props.ballot.map(category => 
-							<>
+							<div key={category.id}>
 								<h3>{category.title}</h3>
 								<p>{props.votes[category.title] || "You didn't vote in this category"}</p>
-							</>
+							</div>
 						)
 					}
 				</div>
