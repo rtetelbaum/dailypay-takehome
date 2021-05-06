@@ -10,7 +10,7 @@ const Modal = props => {
 				</div>
 				<div className='modal-text'>
 					<h1>Your Votes:</h1>
-					{Object.keys(props.votes).length === 0
+					{!Object.keys(props.votes).length
 						?
 						<h3>You didn't vote in any categories, please try again!</h3>
 						:
